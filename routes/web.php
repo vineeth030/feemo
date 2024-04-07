@@ -29,7 +29,17 @@ Route::get('/', function(){
     return Inertia::render('Home', [
         'moviePoster' => asset('storage/posters/dune.jpg')
     ]);
-});
+})->name('home');
+
+Route::get('/movie', function(){
+    return Inertia::render('Movie', [
+        'moviePoster' => asset('storage/posters/dune.jpg')
+    ]);
+})->name('movie');
+
+Route::get('/team', function(){
+    return Inertia::render('Team');
+})->name('team');
 
 Route::get('/dashboard', function () {
     return Inertia::render('Dashboard');
