@@ -23,15 +23,18 @@ defineProps({
                 </div>
             </a>
 
-            <div class="card card-side w-full bg-base-300 shadow-xl">
-                <figure><img :src=moviePoster style="height: 310px;" alt="Movie" /></figure>
-                <div class="card-body pt-4 max-w-md">
-                    <h1 class="card-title text-3xl pt-0">Dune 2021</h1>
-                    <span>Director: Denis Villeneuve</span>
-                    <span>Writers: Jon Spaihts, Denis Villeneuve, Eric Roth</span>
-                    <span>Producers: Denis Villeneuve, Mary Parent, Cale Boyter, Joseph Caracciolo Jr.</span>
-                    <span>Cast: Timothée Chalamet, Rebecca Ferguson, Oscar Isaac, Josh Brolin, Stellan Skarsgård, Dave
-                        Bautista, Zendaya, Jason Momoa, Javier Bardem, Charlotte Rampling</span>
+            <div class="flex flex-col md:flex-row bg-base-300 shadow-xl">
+                <div class="md:w-1/3">
+                    <figure>
+                    <img :src=moviePoster alt="Movie" class="w-full h-auto">
+                    </figure>
+                </div>
+                <div class="md:w-2/3 p-4">
+                    <h1 class="text-3xl">Dune 2021</h1>
+                    <p>Director: Denis Villeneuve</p>
+                    <p>Writers: Jon Spaihts, Denis Villeneuve, Eric Roth</p>
+                    <p>Producers: Denis Villeneuve, Mary Parent, Cale Boyter, Joseph Caracciolo Jr.</p>
+                    <p>Cast: Timothée Chalamet, Rebecca Ferguson, Oscar Isaac, Josh Brolin, Stellan Skarsgård, Dave Bautista, Zendaya, Jason Momoa, Javier Bardem, Charlotte Rampling</p>
                 </div>
             </div>
 
