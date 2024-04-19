@@ -10,6 +10,10 @@ export default {
         './resources/js/**/*.vue',
     ],
 
+    daisyui: {
+        themes: ["dark", "retro", "forest", "coffee", "dracula", "night", "sunset"],
+    },
+
     theme: {
         extend: {
             fontFamily: {
