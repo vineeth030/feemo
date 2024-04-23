@@ -1,9 +1,10 @@
 <?php
 
-use App\Http\Controllers\ProfileController;
-use Illuminate\Foundation\Application;
-use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
+use Illuminate\Support\Facades\Route;
+use Illuminate\Foundation\Application;
+use App\Http\Controllers\MovieController;
+use App\Http\Controllers\ProfileController;
 
 /*
 |--------------------------------------------------------------------------
@@ -25,17 +26,9 @@ use Inertia\Inertia;
 //     ]);
 // });
 
-Route::get('/', function(){
-    return Inertia::render('Home', [
-        'moviePoster' => asset('storage/posters/dune.jpg')
-    ]);
-})->name('home');
+Route::get('/', [MovieController::class, 'index'])->name('home');
 
-Route::get('/movie', function(){
-    return Inertia::render('Movie', [
-        'moviePoster' => asset('storage/posters/dune.jpg')
-    ]);
-})->name('movie');
+Route::get('/movie/{id}', [MovieController::class, 'show'])->name('movie');
 
 Route::get('/team', function(){
     return Inertia::render('Team');

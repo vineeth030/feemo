@@ -1,12 +1,38 @@
-<script setup>
+<script>
+import { ref, computed } from 'vue';
+import MovieCard from '@/Components/MovieCard.vue';
 import { Head, Link } from '@inertiajs/vue3';
 
-defineProps({
-    moviePoster: {
-        type: String,
-        required: true
+export default {
+
+    components: {
+        MovieCard,
+        Head,
+        Link
+    },
+
+    props: {
+        movies: {
+            type: Object,
+            required: true
+        }
+    },
+    setup(props) {
+        
+        const movieName = ref('');
+
+        const filteredMovies = computed(() => {
+            return props.movies.filter((movie) => {
+                return movie.title.toLowerCase().includes(movieName.value.toLowerCase());
+            });
+        });
+
+        return {
+            movieName,
+            filteredMovies
+        }
     }
-});
+}
 
 </script>
 
@@ -24,55 +50,10 @@ defineProps({
             </a>
 
             <div class="card w-full mb-2 bg-base-300 shadow-sm">
-                <div class="card-body">
-                    <input class="input input-bordered w-full" type="text" name="search" id="search" placeholder="Search for your favourite movies here">
-                </div>
+                <input class="input input-bordered w-full" type="text" name="search" v-model="movieName" id="search" placeholder="Search for your favourite movies here">
             </div>
 
-            <a class="flex flex-col mb-2 md:flex-row bg-base-300 shadow-xl" :href="route('movie')">
-                <div class="md:w-1/3">
-                    <figure>
-                    <img :src=moviePoster alt="Movie" class="w-full h-auto">
-                    </figure>
-                </div>
-                <div class="md:w-2/3 p-4">
-                    <h1 class="text-3xl">Dune 2021</h1>
-                    <p>Director: Denis Villeneuve</p>
-                    <p>Writers: Jon Spaihts, Denis Villeneuve, Eric Roth</p>
-                    <p>Producers: Denis Villeneuve, Mary Parent, Cale Boyter, Joseph Caracciolo Jr.</p>
-                    <p>Cast: Timothée Chalamet, Rebecca Ferguson, Oscar Isaac, Josh Brolin, Stellan Skarsgård, Dave Bautista, Zendaya, Jason Momoa, Javier Bardem, Charlotte Rampling</p>
-                </div>
-            </a>
-            
-            <a class="flex flex-col mb-2 md:flex-row bg-base-300 shadow-xl" :href="route('movie')">
-                <div class="md:w-1/3">
-                    <figure>
-                    <img :src=moviePoster alt="Movie" class="w-full h-auto">
-                    </figure>
-                </div>
-                <div class="md:w-2/3 p-4">
-                    <h1 class="text-3xl">Dune 2021</h1>
-                    <p>Director: Denis Villeneuve</p>
-                    <p>Writers: Jon Spaihts, Denis Villeneuve, Eric Roth</p>
-                    <p>Producers: Denis Villeneuve, Mary Parent, Cale Boyter, Joseph Caracciolo Jr.</p>
-                    <p>Cast: Timothée Chalamet, Rebecca Ferguson, Oscar Isaac, Josh Brolin, Stellan Skarsgård, Dave Bautista, Zendaya, Jason Momoa, Javier Bardem, Charlotte Rampling</p>
-                </div>
-            </a>
-
-            <a class="flex flex-col mb-2 md:flex-row bg-base-300 shadow-xl" :href="route('movie')">
-                <div class="md:w-1/3">
-                    <figure>
-                    <img :src=moviePoster alt="Movie" class="w-full h-auto">
-                    </figure>
-                </div>
-                <div class="md:w-2/3 p-4">
-                    <h1 class="text-3xl">Dune 2021</h1>
-                    <p>Director: Denis Villeneuve</p>
-                    <p>Writers: Jon Spaihts, Denis Villeneuve, Eric Roth</p>
-                    <p>Producers: Denis Villeneuve, Mary Parent, Cale Boyter, Joseph Caracciolo Jr.</p>
-                    <p>Cast: Timothée Chalamet, Rebecca Ferguson, Oscar Isaac, Josh Brolin, Stellan Skarsgård, Dave Bautista, Zendaya, Jason Momoa, Javier Bardem, Charlotte Rampling</p>
-                </div>
-            </a>
+            <MovieCard v-for="movie in filteredMovies" :key="movie.id" :movie="movie" />
 
             <a class="card w-full mt-2 bg-base-300 shadow-sm" :href="route('team')">
                 <div class="card-body">
