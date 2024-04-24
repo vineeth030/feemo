@@ -17,6 +17,7 @@ class MovieController extends Controller
     }
 
     public function show($id) : Response {
+
         return Inertia::render('Movie',[
             'movie' => Movie::select(['id','title', 'poster', 'release_date'])->selectRaw('YEAR(release_date) as year')->where('id', $id)->first()
         ]);

@@ -26,7 +26,7 @@ defineProps({
             <div class="flex flex-col md:flex-row bg-base-300 shadow-xl">
                 <div class="md:w-1/3">
                     <figure>
-                    <img :src=movie.poster alt="Movie" class="w-full h-auto">
+                    <img :src="'/storage/posters/' + movie.poster" alt="Movie" class="w-full h-auto">
                     </figure>
                 </div>
                 <div class="md:w-2/3 p-4">
