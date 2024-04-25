@@ -16,10 +16,20 @@ class Movie extends Model
         'poster',
     ];
 
-    protected function posterUrl(): Attribute 
+    public function directors()
     {
-        return Attribute::make(
-            get: fn (string $poster) => asset('strorage/posters/' . $poster),
-        );
+        return $this->belongsToMany(Crew::class)->where('role', 'director');
+    }
+    public function writers()
+    {
+        return $this->belongsToMany(Crew::class)->where('role', 'writer');
+    }
+    public function producers()
+    {
+        return $this->belongsToMany(Crew::class)->where('role', 'producer');
+    }
+    public function cast()
+    {
+        return $this->belongsToMany(Crew::class)->where('role', 'cast');
     }
 }

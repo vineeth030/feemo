@@ -30,11 +30,11 @@ defineProps({
                     </figure>
                 </div>
                 <div class="md:w-2/3 p-4">
-                    <h1 class="text-3xl" v-html="movie.title + ' ' + movie.year"></h1>
-                    <p>Director: Denis Villeneuve</p>
-                    <p>Writers: Jon Spaihts, Denis Villeneuve, Eric Roth</p>
-                    <p>Producers: Denis Villeneuve, Mary Parent, Cale Boyter, Joseph Caracciolo Jr.</p>
-                    <p>Cast: Timothée Chalamet, Rebecca Ferguson, Oscar Isaac, Josh Brolin, Stellan Skarsgård, Dave Bautista, Zendaya, Jason Momoa, Javier Bardem, Charlotte Rampling</p>
+                    <h1 class="text-3xl mb-2" v-html="movie.title + ' ' + movie.year"></h1>
+                    <p class="mb-2"><b>Director</b>: <span v-for="director in movie.directors" :key="director.id" v-text="director.name"></span></p>
+                    <p class="mb-2"><b>Writers</b>: <span v-text="movie.writers.map(writer => writer.name).join(', ')"></span></p>
+                    <p class="mb-2"><b>Producers</b>: <span v-text="movie.producers.map(producer => producer.name).join(', ')"></span></p>
+                    <p class="mb-2"><b>Cast</b>: <span v-text="movie.cast.map(cast => cast.name).join(', ')"></span></p>
                 </div>
             </div>
 

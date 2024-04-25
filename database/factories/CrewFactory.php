@@ -17,11 +17,9 @@ class CrewFactory extends Factory
      */
     public function definition(): array
     {
-        $roles = CrewRole::all();
-
         return [
             'name' => fake()->name(),
-            'role' => $roles[array_rand($roles)],
+            'role' => 'director'
         ];
     }
 }
