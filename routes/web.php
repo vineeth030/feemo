@@ -28,7 +28,7 @@ use App\Http\Controllers\ProfileController;
 
 Route::get('/', [MovieController::class, 'index'])->name('home');
 
-Route::get('/movie/{id}', [MovieController::class, 'show'])->name('movie');
+Route::get('/movie/{slug}', [MovieController::class, 'show'])->name('movie');
 
 Route::get('/team', function(){
     return Inertia::render('Team');

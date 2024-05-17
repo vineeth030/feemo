@@ -3,7 +3,7 @@ defineProps(['movie']);
 </script>
 
 <template>
-    <a class="flex flex-col mb-2 md:flex-row bg-base-300 shadow-xl" :href="route('movie', movie.id)">
+    <a class="flex flex-col mb-2 md:flex-row bg-base-300 shadow-xl" :href="route('movie', movie.slug)">
         <div class="md:w-1/3">
             <figure>
                 <img :src="'/storage/posters/' + movie.poster" alt="Movie" class="w-full h-auto">

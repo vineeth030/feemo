@@ -11,20 +11,20 @@ class MovieController extends Controller
     public function index() : Response {
 
         return Inertia::render('Home',[
-            'movies' => Movie::select(['id', 'title', 'poster', 'release_date'])
+            'movies' => Movie::select(['id', 'slug', 'title', 'poster', 'release_date'])
                             ->with(['directors', 'producers', 'writers', 'cast'])    
                             ->selectRaw('YEAR(release_date) as year')->get()
         ]);
         
     }
 
-    public function show($id) : Response {
+    public function show($slug) : Response {
 
         return Inertia::render('Movie',[
             'movie' => Movie::select(['id','title', 'poster', 'release_date'])
                         ->with(['directors', 'producers', 'writers', 'cast'])
                         ->selectRaw('YEAR(release_date) as year')
-                        ->where('id', $id)->first()
+                        ->where('slug', $slug)->first()
         ]);
     }
 }

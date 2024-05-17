@@ -2,6 +2,7 @@
 
 namespace Database\Factories;
 
+use Illuminate\Support\Str;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
@@ -16,8 +17,11 @@ class MovieFactory extends Factory
      */
     public function definition(): array
     {
+        $title = fake()->name();
+
         return [
-            'title' => fake()->name(),
+            'title' => $title,
+            'slug' => Str::slug($title),
             'poster' => 'dune.jpg',
             'release_date' => fake()->dateTime(),
         ];
