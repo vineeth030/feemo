@@ -9,7 +9,7 @@ class VideoPost extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['post_id', 'url'];
+    protected $fillable = ['url'];
 
     public function post()
     {

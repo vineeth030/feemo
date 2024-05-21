@@ -9,7 +9,7 @@ class TextPost extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['post_id', 'text_content'];
+    protected $fillable = ['text_content'];
 
     public function post()
     {

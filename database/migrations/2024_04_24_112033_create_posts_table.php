@@ -14,7 +14,9 @@ return new class extends Migration
         Schema::create('posts', function (Blueprint $table) {
             $table->id();
             $table->foreignId('user_id')->constrained()->onDelete('cascade');
-            $table->enum('content_type', ['text', 'video', 'rating', 'image']);
+            $table->foreignId('movie_id')->constrained()->onDelete('cascade');
+            $table->string('content_id');
+            $table->string('content_type');
             $table->timestamps();
         });
     }

@@ -16,7 +16,8 @@ class DatabaseSeeder extends Seeder
             UserSeeder::class,
             MovieSeeder::class,
             CrewSeeder::class,
-            CrewMovieSeeder::class
+            CrewMovieSeeder::class,
+            PostSeeder::class,
         ]);
     }
 }

@@ -1,6 +1,24 @@
-<script setup>
+<script>
 import AuthenticatedLayout from '@/Layouts/AuthenticatedLayout.vue';
 import { Head } from '@inertiajs/vue3';
+import Post from '@/Components/Dashboard/Post.vue';
+
+export default {
+
+    components: {
+        Post,
+        Head,
+        AuthenticatedLayout
+    },
+
+    props: {
+        posts: {
+            type: Object,
+            required: true
+        }
+    }
+}
+
 </script>
 
 <template>
@@ -23,10 +41,10 @@ import { Head } from '@inertiajs/vue3';
                     <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
                         <tr>
                             <th scope="col" class="px-6 py-3">
-                                Post name
+                                Post
                             </th>
                             <th scope="col" class="px-6 py-3">
-                                Content
+                                Movie
                             </th>
                             <th scope="col" class="px-6 py-3">
                                 Type
@@ -40,23 +58,7 @@ import { Head } from '@inertiajs/vue3';
                         </tr>
                     </thead>
                     <tbody>
-                        <tr class="odd:bg-white odd:dark:bg-gray-900 even:bg-gray-50 even:dark:bg-gray-800 border-b dark:border-gray-700">
-                            <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                                Apple MacBook Pro 17"
-                            </th>
-                            <td class="px-6 py-4">
-                                Silver
-                            </td>
-                            <td class="px-6 py-4">
-                                Laptop
-                            </td>
-                            <td class="px-6 py-4">
-                                $2999
-                            </td>
-                            <td class="px-6 py-4">
-                                <a href="#" class="font-medium text-blue-600 dark:text-blue-500 hover:underline">Edit</a>
-                            </td>
-                        </tr>
+                        <Post v-for="post in posts" :key="post.id" :post="post" />
                     </tbody>
                 </table>
             </div>
