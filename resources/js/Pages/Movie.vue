@@ -1,4 +1,5 @@
 <script setup>
+import Posts from '@/Components/Posts.vue';
 import { Head, Link } from '@inertiajs/vue3';
 
 defineProps({
@@ -37,8 +38,11 @@ defineProps({
                     <p class="mb-2"><b>Cast</b>: <span v-text="movie.cast.map(cast => cast.name).join(', ')"></span></p>
                 </div>
             </div>
+            
+            <Posts v-for="post in movie.posts" :key="post.id" :post="post" />
+            
 
-            <div class="card w-full h-auto mt-2 bg-base-300 shadow-xl">
+            <!-- <div class="card w-full h-auto mt-2 bg-base-300 shadow-xl">
                 <div class="card-body">
                     <h2 class="card-title text-sm pb-2">Watch the offical trailer of Dune released by Warner Brothers on
                         youtube</h2>
@@ -51,9 +55,9 @@ defineProps({
                         <span>09 Sept 2020</span>
                     </div>
                 </div>
-            </div>
+            </div> -->
 
-            <div class="card w-full mt-2 bg-base-300 shadow-sm">
+            <!-- <div class="card w-full mt-2 bg-base-300 shadow-sm">
                 <div class="card-body">
                     <h2 class="card-title text-sm">Review and ratings of Dune by Rotten tomatoes </h2>
                     <p><a class="text-xs"
@@ -64,9 +68,9 @@ defineProps({
                         <span>15 Sept 2020</span>
                     </div>
                 </div>
-            </div>
+            </div> -->
 
-            <div class="card w-full mt-2 bg-base-300 shadow-sm">
+            <!-- <div class="card w-full mt-2 bg-base-300 shadow-sm">
                 <div class="card-body">
                     <h2 class="card-title text-sm">Review by Paul Makartte </h2>
                     <p>
@@ -77,9 +81,9 @@ defineProps({
                         <span>17 Sept 2020</span>
                     </div>
                 </div>
-            </div>
+            </div> -->
 
-            <div class="card w-full h-auto mt-2 bg-base-300 shadow-xl">
+            <!-- <div class="card w-full h-auto mt-2 bg-base-300 shadow-xl">
                 <div class="card-body">
                     <h2 class="card-title text-sm pb-2">Dune director Denis Villeneuve on adapting Frank Herbert's notoriously unfilmable sci-fi epic</h2>
                     <div class="relative w-full" style="height: 0; padding-top: 56.25%;">
@@ -91,62 +95,19 @@ defineProps({
                         <span>21 Sept 2020</span>
                     </div>
                 </div>
-            </div>
-
-            <div class="card w-full mt-2 bg-base-200 shadow-sm">
+            </div><div class="card w-full h-auto mt-2 bg-base-300 shadow-xl">
                 <div class="card-body">
-                    <h2 class="card-title text-sm">Review by Manoj Nilamboor </h2>
-                    <p>
-                        When the anticipation is feverish, it sets up movies to disappoint and fail. This long-awaited
-                        movie smashes those expectations.</p>
+                    <h2 class="card-title text-sm pb-2">Dune director Denis Villeneuve on adapting Frank Herbert's notoriously unfilmable sci-fi epic</h2>
+                    <div class="relative w-full" style="height: 0; padding-top: 56.25%;">
+                        <iframe src="https://www.youtube.com/embed/Wx0SALW3qF8" class="absolute inset-0 w-full h-full"
+                            frameborder="0" allowfullscreen></iframe>
+                    </div>
                     <div class="card-footer flex justify-between text-sm">
-                        <span>Views 3k</span>
-                        <span>22 Sept 2020</span>
+                        <span>Views 1k</span>
+                        <span>21 Sept 2020</span>
                     </div>
                 </div>
-            </div>
-
-            <div class="card w-full mt-2 bg-base-200 shadow-sm">
-                <div class="card-body">
-                    <h2 class="card-title text-sm">Review by Midhun Vijayan </h2>
-                    <p>
-                        When the anticipation is feverish, it sets up movies to disappoint and fail. This long-awaited
-                        movie smashes those expectations.</p>
-                    <div class="card-footer flex justify-between text-sm">
-                        <span>Views 7k</span>
-                        <span>27 Sept 2020</span>
-                    </div>
-                </div>
-            </div>
-
-            <div class="card w-full mt-2 bg-base-200 shadow-sm">
-                <div class="card-body">
-                    <h2 class="card-title text-sm">Review by Vineeth Vijayan </h2>
-                    <p>
-                        When the anticipation is feverish, it sets up movies to disappoint and fail. This long-awaited
-                        movie smashes those expectations.</p>
-                    <div class="card-footer flex justify-between text-sm">
-                        <span>Views 4k</span>
-                        <span>28 Sept 2020</span>
-                    </div>
-                </div>
-            </div>
-
-            <div class="card w-full mt-2 bg-base-200 shadow-sm">
-                <div class="card-body">
-                    <h2 class="card-title text-sm">Review by Maneesha N </h2>
-                    <p>
-                        When the anticipation is feverish, it sets up movies to disappoint and fail. This long-awaited
-                        movie smashes those expectations.</p>
-                    <div class="card-footer flex justify-between text-sm">
-                        <span>Views 9k</span>
-                        <span>28 Sept 2020</span>
-                    </div>
-                </div>
-            </div>
-
-            
-
+            </div> -->
             
         </div>
     </div>

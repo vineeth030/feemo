@@ -22,7 +22,7 @@ class MovieController extends Controller
 
         return Inertia::render('Movie',[
             'movie' => Movie::select(['id','title', 'poster', 'release_date'])
-                        ->with(['directors', 'producers', 'writers', 'cast'])
+                        ->with(['directors', 'producers', 'writers', 'cast', 'posts', 'posts.content'])
                         ->selectRaw('YEAR(release_date) as year')
                         ->where('slug', $slug)->first()
         ]);
